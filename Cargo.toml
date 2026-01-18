@@ -2,7 +2,7 @@
 name = "infer"
 version = "0.20.0"
 authors = ["Bojan <dbojan@gmail.com>"]
-edition = "2018"
+edition = "2021"
 description = "Small crate to infer file type based on magic number signatures"
 license = "MIT"
 keywords = ["magic-number", "filetype", "mime", "mime-types", "no_std"]
