@@ -1,6 +1,6 @@
 [package]
 name = "infer"
-version = "0.20.0"
+version = "0.21.0"
 authors = ["Bojan <dbojan@gmail.com>"]
 edition = "2021"
 description = "Small crate to infer file type based on magic number signatures"
@@ -23,4 +23,4 @@ path = "examples/file.rs"
 required-features = ["std"]
 
 [dependencies]
-cfb = { version = "0.7.0", optional = true }
+cfb = { version = "0", optional = true }
