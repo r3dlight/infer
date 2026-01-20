@@ -1,4 +1,3 @@
-#![allow(clippy::struct_field_names)]
 /*!
 Small crate to infer file and MIME type by checking the
 [magic number](https://en.wikipedia.org/wiki/Magic_number_(programming)) signature.
@@ -70,6 +69,7 @@ assert_eq!(kind.extension(), "foo");
 #![crate_name = "infer"]
 #![doc(html_root_url = "https://docs.rs/infer/latest")]
 #![forbid(unsafe_code)]
+#![allow(clippy::struct_field_names)]
 #![cfg_attr(not(feature = "std"), no_std)]
 
 #[cfg(feature = "alloc")]
