@@ -256,6 +256,11 @@ const ZSTD_SKIP_MASK: usize = 0xFFFF_FFF0;
 // Zstandard compressed data is made of one or more frames.
 // There are two frame formats defined by Zstandard: Zstandard frames and Skippable frames.
 // See more details from https://tools.ietf.org/id/draft-kucherawy-dispatch-zstd-00.html#rfc.section.2
+/// # Panics
+///
+/// let magic = `u32::from_le_bytes(buf`[0..4].`try_into().unwrap()`);
+/// Cannot panic because buf[0..4] is guaranteed to be 4 bytes long
+/// by the preceding check of `buf.len()` < 8
 #[must_use]
 pub fn is_zst(buf: &[u8]) -> bool {
     if buf.len() > 3 && buf[0] == 0x28 && buf[1] == 0xB5 && buf[2] == 0x2F && buf[3] == 0xFD {
@@ -292,6 +297,11 @@ pub fn is_zst(buf: &[u8]) -> bool {
 // LZ4 compressed data is made of one or more frames.
 // There are two frame formats defined by LZ4: LZ4 Frame format and Skippable frames.
 // See more details from https://github.com/lz4/lz4/blob/v1.9.4/doc/lz4_Frame_format.md
+/// # Panics
+///
+/// let magic = `u32::from_le_bytes(buf`[0..4].`try_into().unwrap()`);
+/// Cannot panic because buf[0..4] is guaranteed to be 4 bytes long
+/// by the preceding check of `buf.len()` < 8
 #[must_use]
 pub fn is_lz4(buf: &[u8]) -> bool {
     // LZ4 frame magic
