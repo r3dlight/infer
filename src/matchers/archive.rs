@@ -266,10 +266,7 @@ pub fn is_zst(buf: &[u8]) -> bool {
         return false;
     }
 
-    let Ok(magic_bytes) = buf[0..4].try_into() else {
-        return false;
-    };
-    let magic = u32::from_le_bytes(magic_bytes);
+    let magic = u32::from_le_bytes(buf[0..4].try_into().unwrap());
     let Ok(magic) = usize::try_from(magic) else {
         return false;
     };
@@ -278,10 +275,7 @@ pub fn is_zst(buf: &[u8]) -> bool {
         return false;
     }
 
-    let Ok(len_bytes) = buf[4..8].try_into() else {
-        return false;
-    };
-    let data_len = u32::from_le_bytes(len_bytes);
+    let data_len = u32::from_le_bytes(buf[4..8].try_into().unwrap());
     let Ok(data_len) = usize::try_from(data_len) else {
         return false;
     };
@@ -309,10 +303,7 @@ pub fn is_lz4(buf: &[u8]) -> bool {
         return false;
     }
 
-    let Ok(magic_bytes) = buf[0..4].try_into() else {
-        return false;
-    };
-    let magic = u32::from_le_bytes(magic_bytes);
+    let magic = u32::from_le_bytes(buf[0..4].try_into().unwrap());
     let Ok(magic) = usize::try_from(magic) else {
         return false;
     };
@@ -321,10 +312,7 @@ pub fn is_lz4(buf: &[u8]) -> bool {
         return false;
     }
 
-    let Ok(len_bytes) = buf[4..8].try_into() else {
-        return false;
-    };
-    let data_len = u32::from_le_bytes(len_bytes);
+    let data_len = u32::from_le_bytes(buf[4..8].try_into().unwrap());
     let Ok(data_len) = usize::try_from(data_len) else {
         return false;
     };
