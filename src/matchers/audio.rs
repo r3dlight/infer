@@ -1,4 +1,4 @@
-/// Returns whether a buffer is MIDI data.*
+/// Returns whether a buffer is MIDI data.
 #[must_use]
 pub fn is_midi(buf: &[u8]) -> bool {
     buf.len() > 3 && buf[0] == 0x4D && buf[1] == 0x54 && buf[2] == 0x68 && buf[3] == 0x64
