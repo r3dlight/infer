@@ -52,7 +52,7 @@ pub fn is_xml(buf: &[u8]) -> bool {
 
 /// Strip whitespaces at the beginning of the buffer.
 ///
-/// Follows `https://mimesniff.spec.whatwg.org`
+/// Follows <https://mimesniff.spec.whatwg.org>
 /// definition of whitespace.
 fn trim_start_whitespaces(mut buf: &[u8]) -> &[u8] {
     while !buf.is_empty() {
