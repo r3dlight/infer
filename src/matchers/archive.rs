@@ -297,11 +297,6 @@ pub fn is_zst(buf: &[u8]) -> bool {
 // LZ4 compressed data is made of one or more frames.
 // There are two frame formats defined by LZ4: LZ4 Frame format and Skippable frames.
 // See more details from https://github.com/lz4/lz4/blob/v1.9.4/doc/lz4_Frame_format.md
-/// # Panics
-///
-/// let magic = `u32::from_le_bytes(buf`[0..4].`try_into().unwrap()`);
-/// Cannot panic because buf[0..4] is guaranteed to be 4 bytes long
-/// by the preceding check of `buf.len()` < 8
 #[must_use]
 pub fn is_lz4(buf: &[u8]) -> bool {
     // LZ4 frame magic
