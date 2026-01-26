@@ -38,7 +38,7 @@ pub fn is_xlsx(buf: &[u8]) -> bool {
     msooxml(buf) == Some(DocType::XLSX)
 }
 
-/// Returns whether a buffer is Microsoft `PowerPoint` 97-2003 Presentation (PPT) data.
+/// Returns whether a buffer is Microsoft PowerPoint 97-2003 Presentation (PPT) data.
 #[must_use]
 pub fn is_ppt(buf: &[u8]) -> bool {
     ole2(buf) == Some(DocType::PPT)
